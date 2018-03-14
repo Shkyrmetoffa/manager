@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { Card, CardSection, Input, Button } from './common';
@@ -19,7 +20,6 @@ class LoginForm extends Component {
   }
 
   render() {
-    console.log('hello');
     return (
       <Card>
         <CardSection>
@@ -41,6 +41,10 @@ class LoginForm extends Component {
           />
         </CardSection>
 
+        <Text style={styles.errorStyle}>
+          {this.props.error}
+        </Text>
+
         <CardSection>
           <Button 
             onPress={this.onButtonPress.bind(this)}
@@ -53,10 +57,20 @@ class LoginForm extends Component {
   };
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ auth }) => {
+  const { email, password, error } = auth;
   return {
-    email: state.auth.email,
-    password: state.auth.password
+    email,
+    password,
+    error
+  }
+};
+
+const styles = {
+  errorStyle: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'red'
   }
 }
 
