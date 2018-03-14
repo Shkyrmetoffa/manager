@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { emailChanged, passwordChanged } from '../actions';
+import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { Card, CardSection, Input, Button } from './common';
 
 class LoginForm extends Component {
@@ -12,7 +12,14 @@ class LoginForm extends Component {
     this.props.passwordChanged(text);
   }
 
+  onButtonPress() {
+    const { email, password } = this.props;
+
+    this.props.loginUser({ email, password });
+  }
+
   render() {
+    console.log('hello');
     return (
       <Card>
         <CardSection>
@@ -35,7 +42,9 @@ class LoginForm extends Component {
         </CardSection>
 
         <CardSection>
-          <Button>
+          <Button 
+            onPress={this.onButtonPress.bind(this)}
+          >
             Login
           </Button>
         </CardSection>
@@ -51,4 +60,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { emailChanged, passwordChanged })(LoginForm);
+export default connect(mapStateToProps, { emailChanged, passwordChanged, loginUser })(LoginForm);
