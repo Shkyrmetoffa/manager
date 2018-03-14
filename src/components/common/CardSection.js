@@ -14,7 +14,7 @@ import React from 'react';
      containerStyle: {
         borderBottomWidth: 1,
         padding: 5,
-        bacgroumdColor: '#fff',
+        backgroundColor: '#fff',
         justifyContent:'flex-start',
         flexDirection: 'row',
         borderColor: "#ddd",
