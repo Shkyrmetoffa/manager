@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
+import {
+  StackNavigator,
+} from 'react-navigation';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import firebase from 'firebase';
 import reducers from './reducers';
 import LoginForm from './components/LoginForm';
-// import Router from './Router';
+import EmployeeList from './components/EmployeeList';
 
 class App extends Component {
+
   componentWillMount() {
     const config = {
       apiKey: "AIzaSyD4UjkNfIub6EWKgfsJNpbAHi7mHahNe6Y",
@@ -24,9 +28,15 @@ class App extends Component {
     const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
     return (
       <Provider store={store}> 
-        <LoginForm />
+        <RootStack />
       </Provider>
-    )
-  }
-}
+    );
+  };
+};
+
+const RootStack = StackNavigator({
+  Login: { screen: LoginForm },
+  Employee: { screen: EmployeeList }
+});
+
 export default App;

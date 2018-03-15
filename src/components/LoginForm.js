@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
+import {
+  StackNavigator,
+} from 'react-navigation';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { Card, CardSection, Input, Button, Spinner } from './common';
 
 class LoginForm extends Component {
+  static navigationOptions = {
+    title: 'Please Login',
+  };
+
   onChangeText(text) {
     this.props.emailChanged(text);
   };
@@ -20,12 +27,14 @@ class LoginForm extends Component {
   };
 
   renderButton() {
+    const { navigate } = this.props.navigation;
     if(this.props.loading) {
       return <Spinner size='large' />
     };
     return (
       <Button 
-            onPress={this.onButtonPress.bind(this)}
+            // onPress={this.onButtonPress.bind(this)}
+            onPress={() => navigate('Employee')}
           >
             Login
           </Button>
@@ -33,6 +42,7 @@ class LoginForm extends Component {
   };
 
   render() {
+    
     return (
       <Card>
         <CardSection>
