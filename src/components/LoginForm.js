@@ -22,19 +22,20 @@ class LoginForm extends Component {
 
   onButtonPress() {
     const { email, password } = this.props;
+    const { navigate } = this.props.navigation;
 
     this.props.loginUser({ email, password });
+    navigate('Employee');
   };
 
   renderButton() {
-    const { navigate } = this.props.navigation;
+    
     if(this.props.loading) {
       return <Spinner size='large' />
     };
     return (
       <Button 
-            // onPress={this.onButtonPress.bind(this)}
-            onPress={() => navigate('Employee')}
+            onPress={this.onButtonPress.bind(this)}
           >
             Login
           </Button>

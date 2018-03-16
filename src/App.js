@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import {
-  StackNavigator,
-} from 'react-navigation';
-import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 import firebase from 'firebase';
 import reducers from './reducers';
-import LoginForm from './components/LoginForm';
-import EmployeeList from './components/EmployeeList';
+import { RootStack } from './components/RootStack';
 
 class App extends Component {
 
@@ -33,10 +29,5 @@ class App extends Component {
     );
   };
 };
-
-const RootStack = StackNavigator({
-  Login: { screen: LoginForm },
-  Employee: { screen: EmployeeList }
-});
 
 export default App;
