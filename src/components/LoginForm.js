@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
-import {
-  StackNavigator,
-} from 'react-navigation';
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
 import { Card, CardSection, Input, Button, Spinner } from './common';
 
 class LoginForm extends Component {
   static navigationOptions = {
-    title: 'Please Login',
+    title: 'Please Login'
   };
 
   onChangeText(text) {
@@ -24,7 +21,7 @@ class LoginForm extends Component {
     const { email, password } = this.props;
     const { navigate } = this.props.navigation;
 
-    this.props.loginUser({ email, password });
+    const loginUser = this.props.loginUser({ email, password });
     navigate('Employee');
   };
 
@@ -35,10 +32,10 @@ class LoginForm extends Component {
     };
     return (
       <Button 
-            onPress={this.onButtonPress.bind(this)}
-          >
-            Login
-          </Button>
+        onPress={this.onButtonPress.bind(this)}
+      >
+        Login
+      </Button>
     );
   };
 
