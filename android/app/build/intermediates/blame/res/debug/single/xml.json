@@ -2,5 +2,9 @@
     {
         "merged": "/home/eugenia/Документы/manager/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
         "source": "/home/eugenia/Документы/manager/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.54.1/res/xml/preferences.xml"
+    },
+    {
+        "merged": "/Users/user/manager/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/Users/user/manager/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.54.1/res/xml/preferences.xml"
     }
 ]

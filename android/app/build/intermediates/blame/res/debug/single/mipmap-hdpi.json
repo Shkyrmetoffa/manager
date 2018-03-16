@@ -2,5 +2,9 @@
     {
         "merged": "/home/eugenia/Документы/manager/android/app/build/intermediates/res/merged/debug/mipmap-hdpi/ic_launcher.png",
         "source": "/home/eugenia/Документы/manager/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/user/manager/android/app/build/intermediates/res/merged/debug/mipmap-hdpi/ic_launcher.png",
+        "source": "/Users/user/manager/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
     }
 ]
