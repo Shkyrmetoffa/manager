@@ -9,15 +9,15 @@ class LoginForm extends Component {
     title: 'Please Login'
   };
 
-  onChangeText(text) {
+  onChangeText = (text) => {
     this.props.emailChanged(text);
   };
 
-  onPasswordChange(text) {
+  onPasswordChange = (text) => {
     this.props.passwordChanged(text);
   };
 
-  onButtonPress() {
+  onButtonPress = () => {
     const { email, password } = this.props;
     const { navigate } = this.props.navigation;
 
@@ -25,14 +25,14 @@ class LoginForm extends Component {
     navigate('Employee');
   };
 
-  renderButton() {
+  renderButton = () => {
     
     if(this.props.loading) {
       return <Spinner size='large' />
     };
     return (
       <Button 
-        onPress={this.onButtonPress.bind(this)}
+        onPress={this.onButtonPress}
       >
         Login
       </Button>
@@ -47,7 +47,7 @@ class LoginForm extends Component {
           <Input 
             label="Email"
             placeholder="email@gmail.com"
-            onChangeText={this.onChangeText.bind(this)}
+            onChangeText={this.onChangeText}
             value={this.props.email}
           />
         </CardSection>
@@ -57,12 +57,13 @@ class LoginForm extends Component {
             secureTextEntry
             label="Password"
             placeholder="password"
-            onChangeText={this.onPasswordChange.bind(this)}
+            onChangeText={this.onPasswordChange}
             value={this.props.password}
           />
         </CardSection>
 
-        <Text style={styles.errorStyle}>
+        <Text 
+          style={styles.errorStyle}>
           {this.props.error}
         </Text>
 
